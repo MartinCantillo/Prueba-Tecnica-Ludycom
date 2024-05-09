@@ -43,17 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
               ),
-              ListTile(
-                title: const Text('Empezar el juego'),
-                onTap: () {
-                   Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => EmpezarJ(),
-                    ),
-                  );
-                },
-              ),
+             
             ],
           ),
         ),

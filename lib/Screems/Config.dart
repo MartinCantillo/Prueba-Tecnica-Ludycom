@@ -1,9 +1,8 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:prueba/Screems/Empezar.dart';
 
 class PlayerNamesForm extends StatefulWidget {
-   static const String nombre = 'PlayerNamesForm';
+  static const String nombre = 'PlayerNamesForm';
   @override
   _PlayerNamesFormState createState() => _PlayerNamesFormState();
 }
@@ -22,14 +21,14 @@ class _PlayerNamesFormState extends State<PlayerNamesForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(
-          title: const Text(
-            "Configuracion",
-            style: TextStyle(color: Colors.white),
-          ),
-          centerTitle: true,
-          backgroundColor: Colors.blue,
+      appBar: AppBar(
+        title: const Text(
+          "Configuracion",
+          style: TextStyle(color: Colors.white),
         ),
+        centerTitle: true,
+        backgroundColor: Colors.blue,
+      ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
@@ -37,21 +36,27 @@ class _PlayerNamesFormState extends State<PlayerNamesForm> {
           children: [
             TextField(
               controller: _player1Controller,
-              decoration: InputDecoration(labelText: 'Nombre del jugador 1'),
+              decoration: InputDecoration(labelText: 'jugador 1'),
             ),
             SizedBox(height: 20),
             TextField(
               controller: _player2Controller,
-              decoration: InputDecoration(labelText: 'Nombre del jugador 2'),
+              decoration: InputDecoration(labelText: 'Jugador 2'),
             ),
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Aquí puedes manejar lo que sucede cuando se presiona el botón de enviar
                 String player1Name = _player1Controller.text;
                 String player2Name = _player2Controller.text;
-                print('Jugador 1: $player1Name');
-                print('Jugador 2: $player2Name');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => EmpezarJ(
+                      player1Name: player1Name,
+                      player2Name: player2Name,
+                    ),
+                  ),
+                );
               },
               child: Text('Enviar'),
             ),

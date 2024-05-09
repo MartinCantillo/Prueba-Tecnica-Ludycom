@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         routes: {
           MyHomePage.nombre: (context) => const MyHomePage(),
           PlayerNamesForm.nombre: (context) => PlayerNamesForm(),
-          EmpezarJ.nombre: (context) => EmpezarJ(),
+          //EmpezarJ.nombre: (context) => EmpezarJ(),
         },
         home: const MyHomePage());
   }

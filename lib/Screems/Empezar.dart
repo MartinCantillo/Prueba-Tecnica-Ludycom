@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class EmpezarJ extends StatefulWidget {
-  
-  
+  final String player1Name;
+  final String player2Name;
+
+  EmpezarJ({required this.player1Name, required this.player2Name});
+
   static const String nombre = 'EmpezarJ';
   @override
   _EmpezarJState createState() => _EmpezarJState();
@@ -28,7 +31,7 @@ class _EmpezarJState extends State<EmpezarJ> {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('¡Jugador 1 gana el juego!'),
+              title: Text('¡${widget.player1Name} gana el juego!'),
               content: Text('¡Felicidades!'),
               actions: [
                 TextButton(
@@ -36,7 +39,7 @@ class _EmpezarJState extends State<EmpezarJ> {
                     resetScores();
                     Navigator.of(context).pop();
                   },
-                  child: Text('OK'),
+                  child: const Text('OK'),
                 ),
               ],
             );
@@ -57,7 +60,7 @@ class _EmpezarJState extends State<EmpezarJ> {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('¡Jugador 2 gana el juego!'),
+              title: Text('¡${widget.player2Name} gana el juego!'),
               content: Text('¡Felicidades!'),
               actions: [
                 TextButton(
@@ -93,11 +96,11 @@ class _EmpezarJState extends State<EmpezarJ> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Jugador 1: $player1Score',
+              'Jugador 1 (${widget.player1Name}): $player1Score',
               style: TextStyle(fontSize: 20),
             ),
             Text(
-              'Jugador 2: $player2Score',
+              'Jugador 2 (${widget.player2Name}): $player2Score',
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 20),
@@ -108,13 +111,13 @@ class _EmpezarJState extends State<EmpezarJ> {
                   onPressed: () {
                     player1Scores();
                   },
-                  child: Text('Punto para Jugador 1'),
+                  child: Text('Punto para ${widget.player1Name}'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     player2Scores();
                   },
-                  child: Text('Punto para Jugador 2'),
+                  child: Text('Punto para ${widget.player2Name}'),
                 ),
               ],
             ),

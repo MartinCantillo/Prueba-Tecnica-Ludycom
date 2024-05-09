@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:prueba/Screems/Config.dart';
-import 'package:prueba/Screems/Empezar.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -16,7 +15,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
-            "Juego Tennis",
+            "Bienvenido al Juego",
             style: TextStyle(color: Colors.white),
           ),
           centerTitle: true,
@@ -30,10 +29,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 decoration: BoxDecoration(
                   color: Colors.blue,
                 ),
-                child: Text('Drawer Header'),
+                child: Icon(
+                  Icons.account_circle_sharp,
+                  size: 100.5,
+                ),
               ),
               ListTile(
-                title: const Text('Configurar nombre jugadores'),
+                title: const Text('Configurar'),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -43,7 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
               ),
-             
             ],
           ),
         ),

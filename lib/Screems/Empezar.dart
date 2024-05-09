@@ -163,6 +163,68 @@ class _TennisGameState extends State<EmpezarJ> {
           setState(() {
             gameEnded = true;
           });
+        } else if (player1Score == 4 && player2Score == 3) {
+          player1Score++;
+          // Indicar ventaja para el jugador 1
+          advantagePlayer1 = true;
+        } else if (player2Score == 4 && player1Score == 3) {
+          player2Score++;
+          // Indicar ventaja para el jugador 2
+          advantagePlayer2 = true;
+        } else if ((advantagePlayer1 || advantagePlayer2) && player1Score - player2Score == 2) {
+          // El jugador que tiene ventaja gana el juego si anota otro punto
+          if (advantagePlayer1 && player == 1) {
+            player1Score++;
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text('¡${widget.player1Name} gana el juego!'),
+                  content: Text('¡Felicidades!'),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        resetScores();
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text('OK'),
+                    ),
+                  ],
+                );
+              },
+            );
+            setState(() {
+              gameEnded = true;
+            });
+          } else if (advantagePlayer2 && player == 2) {
+            player2Score++;
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text('¡${widget.player2Name} gana el juego!'),
+                  content: Text('¡Felicidades!'),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        resetScores();
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text('OK'),
+                    ),
+                  ],
+                );
+              },
+            );
+            setState(() {
+              gameEnded = true;
+            });
+          } else {
+            // Si el jugador con ventaja no anota, se pierde la ventaja y el juego vuelve a deuce
+            advantagePlayer1 = false;
+            advantagePlayer2 = false;
+            deuce = true;
+          }
         } else {
           player == 1 ? player1Score++ : player2Score++;
         }

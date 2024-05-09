@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:prueba/Screems/Config.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
-
+  static const String nombre = 'myhome';
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -21,35 +22,36 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.blue,
         ),
         drawer: Drawer(
-  
-  child: ListView(
-  
-    padding: EdgeInsets.zero,
-    children: [
-      const DrawerHeader(
-        decoration: BoxDecoration(
-          color: Colors.blue,
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              const DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+                child: Text('Drawer Header'),
+              ),
+              ListTile(
+                title: const Text('Configurar nombre jugadores'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PlayerNamesForm(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text('Empezar el juego'),
+                onTap: () {
+                  // Update the state of the app.
+                  // ...
+                },
+              ),
+            ],
+          ),
         ),
-        child: Text('Drawer Header'),
-      ),
-      ListTile(
-        title: const Text('Configurar nombre jugadores'),
-        onTap: () {
-          // Update the state of the app.
-          // ...
-        },
-      ),
-      ListTile(
-        title: const Text('Empezar el juego:'),
-        onTap: () {
-          // Update the state of the app.
-          // ...
-        },
-      ),
-      
-    ],
-  ),
-),
       ),
     );
   }

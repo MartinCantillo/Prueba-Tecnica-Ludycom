@@ -1,0 +1,7 @@
+
+
+
+class Jugador {
+  String? name;
+
+}

@@ -1,7 +1,5 @@
-
-
-
 import 'package:flutter/material.dart';
+import 'package:prueba/Screems/Config.dart';
 import 'package:prueba/Screems/MyHomePage.dart';
 
 class MyApp extends StatelessWidget {
@@ -11,14 +9,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage()
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        initialRoute: MyHomePage.nombre,
+        routes: {
+          MyHomePage.nombre: (context) => const MyHomePage(),
+          PlayerNamesForm.nombre:(context) => PlayerNamesForm(),
+        },
+        home: const MyHomePage());
   }
 }

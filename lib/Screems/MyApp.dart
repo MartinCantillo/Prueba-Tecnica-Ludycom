@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prueba/Screems/Config.dart';
+import 'package:prueba/Screems/Empezar.dart';
 import 'package:prueba/Screems/MyHomePage.dart';
 
 class MyApp extends StatelessWidget {
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
         initialRoute: MyHomePage.nombre,
         routes: {
           MyHomePage.nombre: (context) => const MyHomePage(),
-          PlayerNamesForm.nombre:(context) => PlayerNamesForm(),
+          PlayerNamesForm.nombre: (context) => PlayerNamesForm(),
+          EmpezarJ.nombre: (context) => EmpezarJ(),
         },
         home: const MyHomePage());
   }

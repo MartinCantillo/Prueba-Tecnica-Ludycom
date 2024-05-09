@@ -52,6 +52,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
              ],
            ),
+           Card(
+            child: Image.network(
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjoNk9PiETzm8B2ULHMrDLZE6__7bnqjniX7nWZm8QoQ&s", height: 100),
+                
+          ),
          
         ]),
         drawer: Drawer(

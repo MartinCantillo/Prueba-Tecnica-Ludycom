@@ -165,14 +165,14 @@ class _TennisGameState extends State<EmpezarJ> {
           });
         } else if (player1Score == 4 && player2Score == 3) {
           player1Score++;
-          // Indicar ventaja para el jugador 1
+          
           advantagePlayer1 = true;
         } else if (player2Score == 4 && player1Score == 3) {
           player2Score++;
-          // Indicar ventaja para el jugador 2
+          
           advantagePlayer2 = true;
         } else if ((advantagePlayer1 || advantagePlayer2) && player1Score - player2Score == 2) {
-          // El jugador que tiene ventaja gana el juego si anota otro punto
+          
           if (advantagePlayer1 && player == 1) {
             player1Score++;
             showDialog(
@@ -220,7 +220,7 @@ class _TennisGameState extends State<EmpezarJ> {
               gameEnded = true;
             });
           } else {
-            // Si el jugador con ventaja no anota, se pierde la ventaja y el juego vuelve a deuce
+           
             advantagePlayer1 = false;
             advantagePlayer2 = false;
             deuce = true;
